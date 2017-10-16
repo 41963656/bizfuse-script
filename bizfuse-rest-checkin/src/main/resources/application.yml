@@ -1,0 +1,17 @@
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n" 
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n" 
+  file: ./logs/bzifuse.log
+  level:
+    root: warn
+    net.sf.ehcachenet.sf.ehcache: error
+    org.springframework: error
+    org.quartz: error
+    org.hibernate: error
+    bizfuse.collector: info
+server:
+  port: 8080
+  session-timeout: 30
+  tomcat.max-threads: 0
+  tomcat.uri-encoding: UTF-8

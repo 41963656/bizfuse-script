@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>考勤打卡入口</title>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#doWork").click(function() {
+			doRquest("toWork");
+		});
+		$("#offWork").click(function() {
+			doRquest("offWork");
+		})
+
+		var doRquest = function(type) {
+			var url;
+			if (type == "toWork") {
+				url = "toWork"
+			} else if (type == "offWork") {
+				url = "offWork"
+			}
+			if (url) {
+				$.get(url, function(data, status) {
+					writeContext(data);
+				});
+			} else {
+				writeContext("请求地址不正确");
+			}
+		}
+
+		var writeContext = function(data) {
+			$("#context").empty();
+			$("#context").text(data);
+		}
+	});
+</script>
+<style type="text/css">
+input {
+	width: 300px;
+	height: 100px;
+	font-size: 40px;
+}
+
+div {
+	padding: 10px 10px 10px 10px;
+	font-size: 30px;
+}
+</style>
+</head>
+<body>
+	<div>
+		<input type="button" id="doWork" value="上班打卡" /> <br /> <br /> <input
+			type="button" id="offWork" value="下班打卡" />
+
+	</div>
+	<div id="context"></div>
+</body>
+</html>
