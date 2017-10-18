@@ -13,5 +13,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class RestApp {
 	public static void main(String[] args) throws SchedulerException {
 		SpringApplication.run(RestApp.class, args);
+		//test
 	}
 }
